@@ -32,15 +32,15 @@ public class WormController : MonoBehaviour
             ball.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
-            bazooka.transform.Rotate(0,0,-15, Space.Self);
+            bazooka.transform.Rotate(0,0,-5, Space.Self);
             Debug.Log("Button Input detected");
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            bazooka.transform.Rotate(0, 0, 15, Space.Self);
+            bazooka.transform.Rotate(0, 0, 5, Space.Self);
             Debug.Log("Button Input detected");
         }
 
