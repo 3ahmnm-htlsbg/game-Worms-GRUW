@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class WormController : MonoBehaviour
 {
+    public Rigidbody rb;
+    public Vector3 jump;
+    public Vector3 move;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Wird aufgerufen!");
-        }    
+            rb.AddForce(jump);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(move);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(-move);
+        }
     }
 }
