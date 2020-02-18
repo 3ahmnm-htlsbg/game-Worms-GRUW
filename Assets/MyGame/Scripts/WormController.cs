@@ -5,8 +5,11 @@ using UnityEngine;
 public class WormController : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameObject projectile;
+    public Transform spawnPosition;
     public Vector3 jump;
     public Vector3 move;
+    public Vector3 shoot;
 
     void Update()
     {
@@ -22,5 +25,12 @@ public class WormController : MonoBehaviour
         {
             rb.AddForce(-move);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject ball = Instantiate(projectile, spawnPosition.position, Quaternion.identity);
+            ball.GetComponent<Rigidbody>().AddForce(shoot);
+        }
+
     }
 }
