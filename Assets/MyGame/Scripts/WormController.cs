@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WormController : MonoBehaviour
 {
+    [Header("Healthsystem")]
+    public int health = 10;
+
     public Rigidbody rb;
     public GameObject projectile;
     public Transform spawnPosition;
@@ -22,6 +25,11 @@ public class WormController : MonoBehaviour
 
     void Update()
     {
+        HandleInput();
+    }
+
+    public void HandleInput()
+    {
         if (Input.GetKeyDown(jumpKey))
         {
             rb.AddForce(jump);
@@ -39,18 +47,15 @@ public class WormController : MonoBehaviour
             GameObject ball = Instantiate(projectile, spawnPosition.position, Quaternion.identity);
             ball.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
         }
-
         if (Input.GetKey(rotUpKey))
         {
-            bazooka.transform.Rotate(0,0,-5, Space.Self);
+            bazooka.transform.Rotate(0, 0, -5, Space.Self);
             Debug.Log("Button Input detected");
         }
-
         if (Input.GetKey(rotDownKey))
         {
             bazooka.transform.Rotate(0, 0, 5, Space.Self);
             Debug.Log("Button Input detected");
         }
-
     }
 }
