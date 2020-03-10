@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class WormController : MonoBehaviour
@@ -12,6 +13,7 @@ public class WormController : MonoBehaviour
     public GameObject projectile;
     public Transform spawnPosition;
     public GameObject bazooka;
+    public Text healthText;
     public Vector3 jump;
     public Vector3 move;
     public float shoot = 100;
@@ -27,6 +29,8 @@ public class WormController : MonoBehaviour
     void Update()
     {
         HandleInput();
+
+        healthText.text = health.ToString();
     }
 
     private void OnCollisionEnter(Collision collision)
