@@ -7,6 +7,7 @@ public class WormController : MonoBehaviour
     [Header("Healthsystem")]
     public int health = 10;
 
+    [Header("Fill Out")]
     public Rigidbody rb;
     public GameObject projectile;
     public Transform spawnPosition;
@@ -26,6 +27,14 @@ public class WormController : MonoBehaviour
     void Update()
     {
         HandleInput();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health = health - 1;
+        }
     }
 
     public void HandleInput()

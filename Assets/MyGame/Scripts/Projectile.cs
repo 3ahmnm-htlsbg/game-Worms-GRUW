@@ -10,9 +10,11 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject, 2f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
