@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WormController : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class WormController : MonoBehaviour
         HandleInput();
 
         healthText.text = health.ToString();
+
+        if (health == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
